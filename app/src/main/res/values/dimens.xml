@@ -2,4 +2,5 @@
 <resources>
     <dimen name="progress_bar_width">100dp</dimen>
     <dimen name="progress_bar_height">100dp</dimen>
+    <dimen name="splash_icon_dimen">200dp</dimen>
 </resources>

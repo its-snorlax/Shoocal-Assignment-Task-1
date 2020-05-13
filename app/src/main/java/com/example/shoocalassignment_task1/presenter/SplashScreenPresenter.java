@@ -20,11 +20,9 @@ public class SplashScreenPresenter {
     }
 
     public void makeApiRequest() {
-        splashScreenView.showProgressBar();
         apiDataService.getData().enqueue(new Callback<List<ApiData>>() {
             @Override
             public void onResponse(Call<List<ApiData>> call, Response<List<ApiData>> response) {
-                splashScreenView.hideProgressBar();
                 if (response.isSuccessful()) {
                     List<ApiData> apiDataList = response.body();
                     splashScreenView.openNewActivity(apiDataList);
@@ -35,7 +33,6 @@ public class SplashScreenPresenter {
 
             @Override
             public void onFailure(Call<List<ApiData>> call, Throwable t) {
-                splashScreenView.hideProgressBar();
                 splashScreenView.showError();
             }
         });
