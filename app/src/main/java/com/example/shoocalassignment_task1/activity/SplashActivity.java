@@ -1,7 +1,9 @@
 package com.example.shoocalassignment_task1.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -15,6 +17,8 @@ import com.example.shoocalassignment_task1.network.service.ApiDataService;
 import com.example.shoocalassignment_task1.presenter.SplashScreenPresenter;
 import com.example.shoocalassignment_task1.view.SplashScreenView;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SplashActivity extends Activity implements SplashScreenView {
@@ -44,7 +48,11 @@ public class SplashActivity extends Activity implements SplashScreenView {
 
     @Override
     public void openNewActivity(List<ApiData> apiDataList) {
-        Toast.makeText(this, "Request Success", Toast.LENGTH_LONG).show();
+        ArrayList<ApiData> list = new ArrayList<>(apiDataList);
+        Intent intent = new Intent(this, DashboardActivity.class);
+        intent.putExtra("apiContent", list);
+        startActivity(intent);
+        finish();
     }
 
     @Override

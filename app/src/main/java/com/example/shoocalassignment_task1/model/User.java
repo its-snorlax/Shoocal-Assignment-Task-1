@@ -1,6 +1,8 @@
 package com.example.shoocalassignment_task1.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String login;
     private String id;
 

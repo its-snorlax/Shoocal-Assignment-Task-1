@@ -1,6 +1,8 @@
 package com.example.shoocalassignment_task1.model;
 
-public class ApiData {
+import java.io.Serializable;
+
+public class ApiData implements Serializable {
     private String repository_url;
     private User user;
     private String state;
